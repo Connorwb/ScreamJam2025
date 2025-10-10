@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://djsptalvg0m1o"]
 
-[ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://player_alive.tscn" id="1_syray"]
-[ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://player_dead.tscn" id="2_vsd83"]
-[ext_resource type="Texture2D" uid="uid://fpidioondxfw" path="res://Assets/BGConcept.png" id="3_pxdub"]
-[ext_resource type="Script" path="res://MainCamera.cs" id="4_so06s"]
+[ext_resource type="Texture2D" uid="uid://fpidioondxfw" path="res://Assets/BGConcept.png" id="1_t8ky0"]
+[ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_dpdf7"]
+[ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://Scenes/player_dead.tscn" id="3_bijwd"]
+[ext_resource type="Script" path="res://Scripts/MainCamera.cs" id="4_rp6t1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_id1il"]
 radius = 24.0
@@ -15,19 +15,19 @@ height = 212.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("3_pxdub")
+texture = ExtResource("1_t8ky0")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="PlayerAlive" parent="." instance=ExtResource("1_syray")]
+[node name="PlayerAlive" parent="." instance=ExtResource("2_dpdf7")]
 position = Vector2(500, 150)
 
-[node name="PlayerDead" parent="." instance=ExtResource("2_vsd83")]
+[node name="PlayerDead" parent="." instance=ExtResource("3_bijwd")]
 position = Vector2(500, 930)
 
 [node name="MainCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 540)
-script = ExtResource("4_so06s")
+script = ExtResource("4_rp6t1")
 metadata/_edit_lock_ = true
 
 [node name="Cryptid" type="StaticBody2D" parent="."]

@@ -44,7 +44,7 @@ public partial class PlayerAlive : CharacterBody2D
 
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
 		{
-			carried_velocity.Y -= 1000;
+			carried_velocity.Y = -750;
 		}
 	}
 }

@@ -43,7 +43,7 @@ public partial class PlayerDead : CharacterBody2D
 
 		if (IsOnCeiling() && Input.IsActionPressed("jump"))
 		{
-			carried_velocity.Y += 1000;
+			carried_velocity.Y = 750;
 		}
 	}
 }

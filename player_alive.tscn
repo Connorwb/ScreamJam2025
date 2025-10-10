@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwts5xx0a0evy"]
+
+[ext_resource type="Script" path="res://PlayerAlive.cs" id="1_cuaee"]
+[ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="2_p1ruj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8tc8"]
+size = Vector2(128, 128)
+
+[node name="PlayerAlive" type="Area2D"]
+script = ExtResource("1_cuaee")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p1ruj")
+
+[node name="AliveCol" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b8tc8")

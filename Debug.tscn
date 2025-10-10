@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://djsptalvg0m1o"]
+
+[ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://player_alive.tscn" id="1_syray"]
+[ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://player_dead.tscn" id="2_vsd83"]
+[ext_resource type="Texture2D" uid="uid://fpidioondxfw" path="res://Assets/BGConcept.png" id="3_pxdub"]
+[ext_resource type="Script" path="res://MainCamera.cs" id="4_so06s"]
+
+[node name="Node" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_pxdub")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="PlayerAlive" parent="." instance=ExtResource("1_syray")]
+position = Vector2(500, 150)
+
+[node name="PlayerDead" parent="." instance=ExtResource("2_vsd83")]
+position = Vector2(500, 930)
+
+[node name="MainCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 540)
+script = ExtResource("4_so06s")
+metadata/_edit_lock_ = true

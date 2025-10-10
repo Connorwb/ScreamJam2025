@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8tc8"]
 size = Vector2(128, 128)
 
-[node name="PlayerAlive" type="Area2D"]
+[node name="PlayerAlive" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
+platform_floor_layers = 4294901775
 script = ExtResource("1_cuaee")
 metadata/_edit_group_ = true
 

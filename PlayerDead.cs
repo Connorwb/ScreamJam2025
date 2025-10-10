@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public partial class PlayerDead : Area2D
+public partial class PlayerDead : CharacterBody2D
 {
 	[Export]
 	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
 	[Export]
-	new public int Gravity { get; set; } = -10; // might want to replace later with Godot official stuff
+	public int Gravity { get; set; } = -600; // might want to replace later with Godot official stuff
 
 	public Vector2 ScreenSize; // Size of the game window.
-	public Vector2 velocity; 
+	public Vector2 carried_velocity; 
 	public CollisionShape2D deadCol;
 	public RectangleShape2D SelfBoundary;
 	
@@ -22,10 +22,10 @@ public partial class PlayerDead : Area2D
 		SelfBoundary = (Godot.RectangleShape2D) deadCol.Shape;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		var ctrl_velocity = Vector2.Zero;
+		carried_velocity.Y += Gravity * (float) delta;
 
 		if (Input.IsActionPressed("move_right"))
 		{
@@ -37,46 +37,13 @@ public partial class PlayerDead : Area2D
 			ctrl_velocity.X -= 1 * Speed;
 		}
 
-		if (OnGround())
-		{
-			if (velocity.Y < 0)
-			{
-				velocity.Y = 0; // Stop falling if on the ground
-			}		
-		}
-		else
-		{
-			velocity.Y += Gravity;
-		}
+		Velocity = carried_velocity + ctrl_velocity;
 
-		Position += (velocity + ctrl_velocity) * (float)delta;
-		Position = new Vector2(
-			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
-			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
-		);
-	}
+		MoveAndSlide();
 
-	public override void _Input(InputEvent @event)
-	{
-		if (@event is InputEventKey inputEventKey)
+		if (IsOnCeiling() && Input.IsActionPressed("jump"))
 		{
-			if (inputEventKey.PhysicalKeycode == Key.W)
-			{
-				if (OnGround())
-				{
-					velocity.Y += 1000;
-				}
-				else
-				{
-					return;
-
-				}
-			}
+			carried_velocity.Y += 1000;
 		}
-	}
-	
-	private bool OnGround()
-	{
-		return Position.Y < (ScreenSize.Y + SelfBoundary.Size.Y) / 2;
 	}
 }

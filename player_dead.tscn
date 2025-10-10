@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dklyp"]
 size = Vector2(128, 128)
 
-[node name="PlayerDead" type="Area2D"]
+[node name="PlayerDead" type="CharacterBody2D"]
+collision_layer = 240
+collision_mask = 240
+platform_floor_layers = 4294967280
 script = ExtResource("1_mwnrb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

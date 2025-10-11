@@ -11,9 +11,16 @@ public partial class PlayerAlive : Player
 		Col = GetNode<CollisionShape2D>("AliveCol");
 		SelfBoundary = (Godot.RectangleShape2D)Col.Shape;
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		jumpHeight = -750;
+		jumpHeight = -450;
 		Speed = 400;
 		Gravity = 600;
+		mirrored = false;
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
+		ctrl_velocity = Vector2.Zero;
 	}
 
 	public override bool IsOnFloorMod()

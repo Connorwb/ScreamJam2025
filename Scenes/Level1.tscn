@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cidd3nfcnaq3k"]
+[gd_scene load_steps=22 format=3 uid="uid://cidd3nfcnaq3k"]
 
 [ext_resource type="Texture2D" uid="uid://b62c2jakfxaja" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
@@ -7,26 +7,47 @@
 [ext_resource type="Texture2D" uid="uid://clgxyinpwdbbe" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
 [ext_resource type="Texture2D" uid="uid://icfgau8pvtrc" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
 [ext_resource type="Texture2D" uid="uid://cqmh0750oheo0" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
+[ext_resource type="Texture2D" uid="uid://bos7y311bspx" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
+[ext_resource type="Texture2D" uid="uid://dpqfvq1i4tj07" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
+[ext_resource type="Texture2D" uid="uid://b3fbh1ovhdcv0" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
+[ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="11_r7e0t"]
+[ext_resource type="Texture2D" uid="uid://wobdypdmokqm" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
+[ext_resource type="Script" path="res://Scripts/DepressButton.cs" id="12_n1rot"]
+[ext_resource type="Texture2D" uid="uid://cfbkwxpjg5y0k" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
+[ext_resource type="Script" path="res://Scripts/MovingPlatform.cs" id="15_sfm2b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sh818"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pou8g"]
 distance = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avbjq"]
+size = Vector2(128, 248)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vujex"]
+size = Vector2(67, 14.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljmu2"]
+size = Vector2(49, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wiube"]
+size = Vector2(134, 20.5)
+
 [node name="Node" type="Node"]
 
 [node name="PlayerAlive" parent="." instance=ExtResource("2_jjch3")]
-z_index = 1
-position = Vector2(40, 434)
+z_index = 5
+position = Vector2(40, 460)
 
-[node name="PlayerDead" parent="." instance=ExtResource("3_laytm")]
-z_index = 1
-position = Vector2(40, 646)
+[node name="PlayerDead" parent="." node_paths=PackedStringArray("AlivePair") instance=ExtResource("3_laytm")]
+z_index = 5
+position = Vector2(40, 620)
+AlivePair = NodePath("../PlayerAlive")
 
 [node name="Floor_Alive" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor_Alive"]
-position = Vector2(0, 489)
+position = Vector2(0, 515)
 shape = SubResource("WorldBoundaryShape2D_sh818")
 
 [node name="Floor_Dead" type="StaticBody2D" parent="."]
@@ -36,7 +57,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor_Dead"]
-position = Vector2(0, -50)
+position = Vector2(6.08444e-05, -24)
 shape = SubResource("WorldBoundaryShape2D_pou8g")
 
 [node name="MainCamera" type="Camera2D" parent="."]
@@ -45,23 +66,191 @@ script = ExtResource("4_igryi")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
-layer = -1
+layer = -2
 
 [node name="Floor" type="Sprite2D" parent="MainCamera/CanvasLayer"]
 position = Vector2(960, 540)
-scale = Vector2(1.5142, 1)
+scale = Vector2(1.514, 0.5)
 texture = ExtResource("1_iov0d")
 
 [node name="AliveSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
-position = Vector2(960, 244)
-scale = Vector2(1.5, 1.19024)
+position = Vector2(960, 257)
+scale = Vector2(1.5, 1.25366)
 texture = ExtResource("5_ij7ed")
 
 [node name="DeadSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
-position = Vector2(960, 836)
-scale = Vector2(1.5, 1.19024)
+position = Vector2(960, 823)
+scale = Vector2(1.5, 1.25366)
 texture = ExtResource("6_scdgf")
 
-[node name="Bush1" type="Sprite2D" parent="."]
-position = Vector2(513, 421)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="MainCamera"]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="MainCamera/ParallaxBackground"]
+position = Vector2(200, 0)
+motion_scale = Vector2(0.02, 0.02)
+motion_mirroring = Vector2(1960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer"]
+position = Vector2(990, 367)
+texture = ExtResource("10_urap6")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="MainCamera/ParallaxBackground"]
+position = Vector2(0, -2)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1980, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
+z_index = 1
+position = Vector2(1199, 449)
 texture = ExtResource("7_ecgjc")
+
+[node name="AliveTree2" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1334, 301)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_8ob7d")
+
+[node name="DeadTree2" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1332, 805)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_aiwcg")
+flip_h = true
+flip_v = true
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(568, 481)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ecgjc")
+
+[node name="AliveTree1" type="Sprite2D" parent="."]
+position = Vector2(884, 192)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_8ob7d")
+
+[node name="DeadTree1" type="Sprite2D" parent="."]
+position = Vector2(884, 918)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_aiwcg")
+flip_h = true
+flip_v = true
+
+[node name="DebugDoor" type="StaticBody2D" parent="."]
+position = Vector2(48, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DebugDoor"]
+position = Vector2(1455, 407)
+shape = SubResource("RectangleShape2D_avbjq")
+
+[node name="Unopened" type="Sprite2D" parent="DebugDoor"]
+position = Vector2(1455, 407)
+scale = Vector2(1, 1.9375)
+texture = ExtResource("11_r7e0t")
+
+[node name="Opened" type="Sprite2D" parent="DebugDoor"]
+visible = false
+position = Vector2(1455, 407.321)
+rotation = 1.5708
+scale = Vector2(1.94252, 1)
+texture = ExtResource("11_r7e0t")
+
+[node name="Button1" type="StaticBody2D" parent="." node_paths=PackedStringArray("actuate_obj_body")]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("12_n1rot")
+actuate_obj_body = NodePath("../DebugDoor")
+toggle_layer = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
+position = Vector2(1669.5, 565.875)
+shape = SubResource("RectangleShape2D_vujex")
+
+[node name="Depressed" type="Sprite2D" parent="Button1"]
+visible = false
+position = Vector2(1670, 569)
+texture = ExtResource("12_73iys")
+flip_v = true
+
+[node name="Ready" type="Sprite2D" parent="Button1"]
+position = Vector2(1670, 569)
+texture = ExtResource("14_k6yip")
+flip_v = true
+
+[node name="Actuation" type="Area2D" parent="Button1"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1/Actuation"]
+position = Vector2(1669.5, 571.5)
+shape = SubResource("RectangleShape2D_ljmu2")
+
+[node name="BuildingA" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingA"]
+position = Vector2(2611, 338)
+shape = SubResource("RectangleShape2D_wiube")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingA"]
+position = Vector2(2611, 338.5)
+scale = Vector2(1.625, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingB" type="StaticBody2D" parent="."]
+position = Vector2(-1, -174)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingB"]
+position = Vector2(2611, 338.5)
+scale = Vector2(1.625, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingB"]
+position = Vector2(247, -177)
+polygon = PackedVector2Array(2463, 357, 2466, 540, 2262, 539, 2263, 513)
+
+[node name="ButtonRisePlat" type="StaticBody2D" parent="."]
+position = Vector2(2420, 569)
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("12_n1rot")
+toggle_layer = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonRisePlat"]
+shape = SubResource("RectangleShape2D_vujex")
+
+[node name="Depressed" type="Sprite2D" parent="ButtonRisePlat"]
+visible = false
+texture = ExtResource("12_73iys")
+flip_v = true
+
+[node name="Ready" type="Sprite2D" parent="ButtonRisePlat"]
+texture = ExtResource("14_k6yip")
+flip_v = true
+
+[node name="Actuation" type="Area2D" parent="ButtonRisePlat"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonRisePlat/Actuation"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ljmu2")
+
+[node name="RisePlat" type="StaticBody2D" parent="."]
+position = Vector2(-224, 153)
+script = ExtResource("15_sfm2b")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RisePlat"]
+position = Vector2(2648, 352.25)
+shape = SubResource("RectangleShape2D_wiube")
+
+[node name="Sprite2D" type="Sprite2D" parent="RisePlat"]
+position = Vector2(2648, 352.5)
+scale = Vector2(1.04688, 0.164063)
+texture = ExtResource("11_r7e0t")
+
+[connection signal="body_entered" from="Button1/Actuation" to="Button1" method="OnBodyEntered"]
+[connection signal="body_exited" from="Button1/Actuation" to="Button1" method="OnBodyExited"]
+[connection signal="body_entered" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="OnBodyEntered"]
+[connection signal="body_exited" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="OnBodyExited"]

@@ -1,10 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://yrqpuovcvnia"]
+[gd_scene load_steps=9 format=3 uid="uid://yrqpuovcvnia"]
 
-[ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="1_8bgtm"]
 [ext_resource type="Script" path="res://Scripts/PlayerDead.cs" id="1_mwnrb"]
+[ext_resource type="Texture2D" uid="uid://tduqy20iysil" path="res://Assets/character animations/player/1.PNG" id="3_7wxje"]
+[ext_resource type="Texture2D" uid="uid://ctcmxnmvwhd2r" path="res://Assets/character animations/player/jump.png" id="4_mylna"]
+[ext_resource type="Texture2D" uid="uid://cwvj4urhn62qr" path="res://Assets/character animations/player/2.PNG" id="5_sxwx7"]
+[ext_resource type="Texture2D" uid="uid://clel6nbq1nmfq" path="res://Assets/character animations/player/3.PNG" id="6_op4u1"]
+[ext_resource type="Texture2D" uid="uid://cry32ruryq8ke" path="res://Assets/character animations/player/4.PNG" id="7_dne71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dklyp"]
-size = Vector2(128, 128)
+size = Vector2(61, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lp1mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7wxje")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mylna")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7wxje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxwx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_op4u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dne71")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
 
 [node name="PlayerDead" type="CharacterBody2D"]
 collision_layer = 240
@@ -12,9 +52,12 @@ collision_mask = 240
 platform_floor_layers = 4294967280
 script = ExtResource("1_mwnrb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8bgtm")
-flip_v = true
-
 [node name="DeadCol" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -2)
 shape = SubResource("RectangleShape2D_dklyp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_lp1mt")
+animation = &"Idle"
+flip_h = true

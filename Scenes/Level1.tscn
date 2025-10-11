@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cidd3nfcnaq3k"]
+
+[ext_resource type="Texture2D" uid="uid://b62c2jakfxaja" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
+[ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
+[ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://Scenes/player_dead.tscn" id="3_laytm"]
+[ext_resource type="Script" path="res://Scripts/MainCamera.cs" id="4_igryi"]
+[ext_resource type="Texture2D" uid="uid://clgxyinpwdbbe" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
+[ext_resource type="Texture2D" uid="uid://icfgau8pvtrc" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
+[ext_resource type="Texture2D" uid="uid://cqmh0750oheo0" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sh818"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pou8g"]
+distance = 1.0
+
+[node name="Node" type="Node"]
+
+[node name="PlayerAlive" parent="." instance=ExtResource("2_jjch3")]
+z_index = 1
+position = Vector2(40, 434)
+
+[node name="PlayerDead" parent="." instance=ExtResource("3_laytm")]
+z_index = 1
+position = Vector2(40, 646)
+
+[node name="Floor_Alive" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor_Alive"]
+position = Vector2(0, 489)
+shape = SubResource("WorldBoundaryShape2D_sh818")
+
+[node name="Floor_Dead" type="StaticBody2D" parent="."]
+position = Vector2(0, 540)
+rotation = 3.14159
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor_Dead"]
+position = Vector2(0, -50)
+shape = SubResource("WorldBoundaryShape2D_pou8g")
+
+[node name="MainCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 540)
+script = ExtResource("4_igryi")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
+layer = -1
+
+[node name="Floor" type="Sprite2D" parent="MainCamera/CanvasLayer"]
+position = Vector2(960, 540)
+scale = Vector2(1.5142, 1)
+texture = ExtResource("1_iov0d")
+
+[node name="AliveSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
+position = Vector2(960, 244)
+scale = Vector2(1.5, 1.19024)
+texture = ExtResource("5_ij7ed")
+
+[node name="DeadSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
+position = Vector2(960, 836)
+scale = Vector2(1.5, 1.19024)
+texture = ExtResource("6_scdgf")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(513, 421)
+texture = ExtResource("7_ecgjc")

@@ -17,7 +17,7 @@ public partial class StartButton : Area2D
 		{
 			if (Input.IsActionJustPressed("select"))
 			{
-				GetTree().ChangeSceneToFile("res://Scenes/Debug.tscn");
+				GetTree().ChangeSceneToFile("res://Scenes/Level1.tscn");
 			}
 		}
 	}

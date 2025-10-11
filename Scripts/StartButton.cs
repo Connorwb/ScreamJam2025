@@ -25,12 +25,10 @@ public partial class StartButton : Area2D
 	private void OnMouseEntered()
 	{
 		_isMouseInside = true;
-		GD.Print("Mouse entered Area2D!");
 	}
 
 	private void OnMouseExited()
 	{
 		_isMouseInside = false;
-		GD.Print("Mouse exited Area2D!");
 	}
 }

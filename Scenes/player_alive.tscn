@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwts5xx0a0evy"]
+[gd_scene load_steps=10 format=3 uid="uid://bwts5xx0a0evy"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerAlive.cs" id="1_cuaee"]
 [ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="2_p1ruj"]
+[ext_resource type="Texture2D" uid="uid://tduqy20iysil" path="res://Assets/character animations/player/1.PNG" id="3_sfl0p"]
+[ext_resource type="Texture2D" uid="uid://ctcmxnmvwhd2r" path="res://Assets/character animations/player/jump.png" id="4_0p3i0"]
+[ext_resource type="Texture2D" uid="uid://cwvj4urhn62qr" path="res://Assets/character animations/player/2.PNG" id="4_ycoaj"]
+[ext_resource type="Texture2D" uid="uid://clel6nbq1nmfq" path="res://Assets/character animations/player/3.PNG" id="5_6tj06"]
+[ext_resource type="Texture2D" uid="uid://cry32ruryq8ke" path="res://Assets/character animations/player/4.PNG" id="6_7u8r8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8tc8"]
 size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1n13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sfl0p")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0p3i0")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sfl0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ycoaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6tj06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7u8r8")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
 
 [node name="PlayerAlive" type="CharacterBody2D"]
 collision_layer = 15
@@ -14,7 +55,13 @@ script = ExtResource("1_cuaee")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_p1ruj")
 
 [node name="AliveCol" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b8tc8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h1n13")
+animation = &"Walking"
+frame_progress = 0.698086

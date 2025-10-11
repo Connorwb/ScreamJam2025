@@ -12,6 +12,7 @@ public partial class PlayerDead : CharacterBody2D
 	public Vector2 carried_velocity; 
 	public CollisionShape2D deadCol;
 	public RectangleShape2D SelfBoundary;
+	private AnimatedSprite2D animatedSprite2D;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -19,13 +20,13 @@ public partial class PlayerDead : CharacterBody2D
 		ScreenSize = GetViewportRect().Size;
 		var velocity = Vector2.Zero; // The player's movement vector.
 		Godot.CollisionShape2D deadCol = GetNode<CollisionShape2D>("DeadCol");
-		SelfBoundary = (Godot.RectangleShape2D) deadCol.Shape;
+		SelfBoundary = (Godot.RectangleShape2D)deadCol.Shape;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		var ctrl_velocity = Vector2.Zero;
-		carried_velocity.Y += Gravity * (float) delta;
+		carried_velocity.Y += Gravity * (float)delta;
 
 		if (Input.IsActionPressed("move_right"))
 		{

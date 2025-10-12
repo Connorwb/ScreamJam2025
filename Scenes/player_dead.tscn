@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://yrqpuovcvnia"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerDead.cs" id="1_mwnrb"]
-[ext_resource type="Texture2D" uid="uid://tduqy20iysil" path="res://Assets/character animations/player/1.PNG" id="3_7wxje"]
-[ext_resource type="Texture2D" uid="uid://ctcmxnmvwhd2r" path="res://Assets/character animations/player/jump.png" id="4_mylna"]
-[ext_resource type="Texture2D" uid="uid://cwvj4urhn62qr" path="res://Assets/character animations/player/2.PNG" id="5_sxwx7"]
-[ext_resource type="Texture2D" uid="uid://clel6nbq1nmfq" path="res://Assets/character animations/player/3.PNG" id="6_op4u1"]
-[ext_resource type="Texture2D" uid="uid://cry32ruryq8ke" path="res://Assets/character animations/player/4.PNG" id="7_dne71"]
+[ext_resource type="Script" path="res://Scripts/PlayerDead.gd" id="1_hj78a"]
+[ext_resource type="Texture2D" uid="uid://dx6kex486secg" path="res://Assets/character animations/player/1.PNG" id="3_7wxje"]
+[ext_resource type="Texture2D" uid="uid://bpoo402jxe3hx" path="res://Assets/character animations/player/jump.png" id="4_mylna"]
+[ext_resource type="Texture2D" uid="uid://bg1panvyf76je" path="res://Assets/character animations/player/2.PNG" id="5_sxwx7"]
+[ext_resource type="Texture2D" uid="uid://dl1higr4lnaso" path="res://Assets/character animations/player/3.PNG" id="6_op4u1"]
+[ext_resource type="Texture2D" uid="uid://b146mk6qov36h" path="res://Assets/character animations/player/4.PNG" id="7_dne71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dklyp"]
 size = Vector2(61, 102)
@@ -51,7 +51,7 @@ scale = Vector2(0.8, 0.8)
 collision_layer = 240
 collision_mask = 240
 platform_floor_layers = 4294967280
-script = ExtResource("1_mwnrb")
+script = ExtResource("1_hj78a")
 
 [node name="DeadCol" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -2)

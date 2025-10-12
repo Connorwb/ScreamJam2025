@@ -1,21 +1,20 @@
-[gd_scene load_steps=36 format=3 uid="uid://cidd3nfcnaq3k"]
+[gd_scene load_steps=35 format=3 uid="uid://cidd3nfcnaq3k"]
 
-[ext_resource type="Texture2D" uid="uid://b62c2jakfxaja" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
+[ext_resource type="Texture2D" uid="uid://buma2e4diq1bm" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
+[ext_resource type="Script" uid="uid://c0ebfuwmlis6c" path="res://Scripts/MainCamera.gd" id="3_hvy0x"]
 [ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://Scenes/player_dead.tscn" id="3_laytm"]
-[ext_resource type="Script" path="res://Scripts/MainCamera.cs" id="4_igryi"]
-[ext_resource type="Texture2D" uid="uid://clgxyinpwdbbe" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
-[ext_resource type="Texture2D" uid="uid://icfgau8pvtrc" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
-[ext_resource type="Texture2D" uid="uid://cqmh0750oheo0" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
-[ext_resource type="Texture2D" uid="uid://bos7y311bspx" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
-[ext_resource type="Texture2D" uid="uid://dpqfvq1i4tj07" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
-[ext_resource type="Texture2D" uid="uid://b3fbh1ovhdcv0" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
+[ext_resource type="Texture2D" uid="uid://dmwg45qb48jay" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
+[ext_resource type="Texture2D" uid="uid://ekmj2agyhi5h" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
+[ext_resource type="Texture2D" uid="uid://t46gp13qvf8h" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
+[ext_resource type="Texture2D" uid="uid://bw5bs56jwdang" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
+[ext_resource type="Texture2D" uid="uid://cme7tk72b5npw" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
+[ext_resource type="Texture2D" uid="uid://6hvkigaye4cb" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
 [ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="11_r7e0t"]
-[ext_resource type="Texture2D" uid="uid://wobdypdmokqm" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
-[ext_resource type="Script" path="res://Scripts/DepressButton.cs" id="12_n1rot"]
-[ext_resource type="Texture2D" uid="uid://cfbkwxpjg5y0k" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
-[ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="15_o1n0w"]
-[ext_resource type="Script" path="res://Scripts/MovingPlatform.cs" id="15_sfm2b"]
+[ext_resource type="Texture2D" uid="uid://cqn2w6f14pq77" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
+[ext_resource type="Script" uid="uid://brut386tm4c00" path="res://Scripts/DepressButton.gd" id="12_qs1hw"]
+[ext_resource type="Texture2D" uid="uid://30vu3i23rudy" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
+[ext_resource type="Script" uid="uid://dw7ybqaffclw0" path="res://Scripts/PowerButton.gd" id="15_bihmv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sh818"]
 
@@ -36,22 +35,6 @@ size = Vector2(207, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wiube"]
 size = Vector2(134, 20.5)
-
-[sub_resource type="Animation" id="Animation_qmah7"]
-resource_name = "Rise"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-230, 160), Vector2(-230, -275)]
-}
 
 [sub_resource type="Animation" id="Animation_58ivf"]
 length = 0.001
@@ -80,10 +63,26 @@ tracks/1/keys = {
 "values": [null]
 }
 
+[sub_resource type="Animation" id="Animation_qmah7"]
+resource_name = "Rise"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-230, 160), Vector2(-230, -275)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf7g5"]
 _data = {
-"RESET": SubResource("Animation_58ivf"),
-"Rise": SubResource("Animation_qmah7")
+&"RESET": SubResource("Animation_58ivf"),
+&"Rise": SubResource("Animation_qmah7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1pbe"]
@@ -101,6 +100,21 @@ size = Vector2(24, 201)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0iqn"]
 size = Vector2(73, 16)
 
+[sub_resource type="Animation" id="Animation_vecq3"]
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21, 353)]
+}
+
 [sub_resource type="Animation" id="Animation_68s7v"]
 resource_name = "rightleft"
 length = 12.0
@@ -115,22 +129,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 5.96667, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(600, 303), Vector2(290, 303), Vector2(600, 303)]
-}
-
-[sub_resource type="Animation" id="Animation_vecq3"]
-length = 12.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-21, 303)]
+"values": [Vector2(600, 363), Vector2(290, 393), Vector2(600, 363)]
 }
 
 [sub_resource type="Animation" id="Animation_per6p"]
@@ -147,14 +146,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 6, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-21, 303), Vector2(250, 303), Vector2(-21, 303)]
+"values": [Vector2(-21, 303), Vector2(250, 373), Vector2(-21, 303)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mlphr"]
 _data = {
-"RESET": SubResource("Animation_vecq3"),
-"rightleft": SubResource("Animation_68s7v"),
-"rightleft2": SubResource("Animation_per6p")
+&"RESET": SubResource("Animation_vecq3"),
+&"rightleft": SubResource("Animation_68s7v"),
+&"rightleft2": SubResource("Animation_per6p")
 }
 
 [node name="Node" type="Node"]
@@ -186,7 +185,7 @@ shape = SubResource("WorldBoundaryShape2D_pou8g")
 
 [node name="MainCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 540)
-script = ExtResource("4_igryi")
+script = ExtResource("3_hvy0x")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
@@ -280,9 +279,9 @@ texture = ExtResource("11_r7e0t")
 [node name="Button1" type="StaticBody2D" parent="." node_paths=PackedStringArray("actuate_obj_body")]
 collision_layer = 32
 collision_mask = 32
-script = ExtResource("12_n1rot")
+script = ExtResource("12_qs1hw")
 actuate_obj_body = NodePath("../DebugDoor")
-toggle_layer = 1
+toggle_layer = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button1"]
 position = Vector2(1669.5, 565.875)
@@ -336,7 +335,7 @@ polygon = PackedVector2Array(2463, 357, 2466, 540, 2262, 539, 2263, 513)
 position = Vector2(2420, 569)
 collision_layer = 32
 collision_mask = 32
-script = ExtResource("15_o1n0w")
+script = ExtResource("15_bihmv")
 actuate_anim = NodePath("../RisePlat/Rise")
 metadata/_edit_group_ = true
 
@@ -362,7 +361,6 @@ shape = SubResource("RectangleShape2D_ljmu2")
 
 [node name="RisePlat" type="StaticBody2D" parent="."]
 position = Vector2(-224, 153)
-script = ExtResource("15_sfm2b")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RisePlat"]
@@ -376,7 +374,7 @@ texture = ExtResource("11_r7e0t")
 
 [node name="Rise" type="AnimationPlayer" parent="RisePlat"]
 libraries = {
-"": SubResource("AnimationLibrary_xf7g5")
+&"": SubResource("AnimationLibrary_xf7g5")
 }
 
 [node name="BuildingC" type="StaticBody2D" parent="."]
@@ -445,7 +443,7 @@ scale = Vector2(0.187502, 1.5625)
 texture = ExtResource("11_r7e0t")
 
 [node name="BuildingH" type="StaticBody2D" parent="."]
-position = Vector2(-21, 303)
+position = Vector2(-21, 353)
 collision_layer = 16
 collision_mask = 16
 metadata/_edit_group_ = true
@@ -461,12 +459,12 @@ texture = ExtResource("11_r7e0t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingH"]
 libraries = {
-"": SubResource("AnimationLibrary_mlphr")
+&"": SubResource("AnimationLibrary_mlphr")
 }
 autoplay = "rightleft2"
 
 [node name="BuildingI" type="StaticBody2D" parent="."]
-position = Vector2(-21, 303)
+position = Vector2(-21, 353)
 collision_layer = 16
 collision_mask = 16
 metadata/_edit_group_ = true
@@ -482,11 +480,10 @@ texture = ExtResource("11_r7e0t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingI"]
 libraries = {
-"": SubResource("AnimationLibrary_mlphr")
+&"": SubResource("AnimationLibrary_mlphr")
 }
 autoplay = "rightleft"
 
-[connection signal="body_entered" from="Button1/Actuation" to="Button1" method="OnBodyEntered"]
-[connection signal="body_exited" from="Button1/Actuation" to="Button1" method="OnBodyExited"]
-[connection signal="body_entered" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="OnBodyEntered"]
-[connection signal="body_exited" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="OnBodyExited"]
+[connection signal="body_entered" from="Button1/Actuation" to="Button1" method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="_on_detection_area_body_exited"]

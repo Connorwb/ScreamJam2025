@@ -1,0 +1,9 @@
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.csproj.AssemblyReference.cache
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.AssemblyInfoInputs.cache
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.AssemblyInfo.cs
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.csproj.CoreCompileInputs.cache
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\bin\Debug\horogaem_g3.dll
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\bin\Debug\horogaem_g3.pdb
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.dll
+C:\Users\Connor\Documents\horogaem_g3\.mono\temp\obj\Debug\horogaem_g3.pdb

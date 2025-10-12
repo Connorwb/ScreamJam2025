@@ -4,7 +4,7 @@ using System;
 public partial class PlayerDead : Player
 {
 	[Export]
-	private CharacterBody2D AlivePair;
+	private KinematicBody AlivePair;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,13 +13,13 @@ public partial class PlayerDead : Player
 		carried_velocity = Vector2.Zero;
 		Col = GetNode<CollisionShape2D>("DeadCol");
 		SelfBoundary = (Godot.RectangleShape2D)Col.Shape;
-		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite2D = GetNode<AnimatedSprite>("AnimatedSprite2D");
 		jumpHeight = 450;
 		Speed = 400;
 		Gravity = -600;
 		mirrored = true;
 	}
-	public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(float delta)
 	{
 		if (Input.IsActionPressed("regroup"))
 		{
@@ -29,7 +29,7 @@ public partial class PlayerDead : Player
 			}
 			else
 			{
-				if (AlivePair.Position.X > Position.X)
+				if (AlivePair.Position.x > Position.x)
 				{
 					move_right();
 				}

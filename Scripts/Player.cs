@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract partial class Player : CharacterBody2D
+public abstract partial class Player : KinematicBody2D
 {
 	
 	public int Speed; // How fast the player will move (pixels/sec).
@@ -11,14 +11,14 @@ public abstract partial class Player : CharacterBody2D
 	public Vector2 carried_velocity; 
 	public CollisionShape2D Col;
 	public RectangleShape2D SelfBoundary;
-	public AnimatedSprite2D animatedSprite2D;
+	public AnimatedSprite animatedSprite2D;
 	public float jumpHeight;
 	public bool mirrored;
 	protected Vector2 ctrl_velocity;
 
-	public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(float delta)
 	{
-		carried_velocity.Y += Gravity * (float)delta;
+		carried_velocity.y += Gravity * (float)delta;
 
 		if (Input.IsActionPressed("move_right"))
 		{
@@ -30,11 +30,11 @@ public abstract partial class Player : CharacterBody2D
 			move_left();
 		}
 
-		Velocity = carried_velocity + ctrl_velocity;
+		var velocity = carried_velocity + ctrl_velocity;
 
-		MoveAndSlide();
+		MoveAndSlide(velocity);
 
-		if (Velocity.Length() < 50)
+		if (velocity.Length() < 50)
 		{
 			animatedSprite2D.Animation = "Idle";
 		}
@@ -43,11 +43,11 @@ public abstract partial class Player : CharacterBody2D
 		{
 			if (Input.IsActionPressed("jump"))
 			{
-				carried_velocity.Y = jumpHeight;
+				carried_velocity.y = jumpHeight;
 			}
 			else
 			{
-				carried_velocity.Y = 0;
+				carried_velocity.y = 0;
 			}
 
 		}
@@ -58,7 +58,7 @@ public abstract partial class Player : CharacterBody2D
 		
 		if (IsOnCeilingMod())
 		{
-			carried_velocity.Y = 0;
+			carried_velocity.y = 0;
 		}
 
 		animatedSprite2D.Play();
@@ -69,13 +69,13 @@ public abstract partial class Player : CharacterBody2D
 
 	protected void move_left()
 	{
-		ctrl_velocity.X -= 1 * Speed;
+		ctrl_velocity.x -= 1 * Speed;
 		animatedSprite2D.Animation = "Walking";
 		animatedSprite2D.FlipH = !mirrored;
 	}
 
 	protected void move_right(){
-		ctrl_velocity.X += 1 * Speed;
+		ctrl_velocity.x += 1 * Speed;
 		animatedSprite2D.Animation = "Walking";
 		animatedSprite2D.FlipH = mirrored;
 	}

@@ -27,4 +27,10 @@ public partial class PlayerAlive : Player
 	{
 		return IsOnFloor();
 	}
+
+	public override bool IsOnCeilingMod()
+	{
+		return IsOnCeiling();
+	}
+
 }

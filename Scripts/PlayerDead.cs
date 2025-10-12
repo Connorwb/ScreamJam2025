@@ -43,9 +43,15 @@ public partial class PlayerDead : Player
 		ctrl_velocity = Vector2.Zero;
 	}
 
-	
+
 	public override bool IsOnFloorMod()
 	{
 		return IsOnCeiling();
 	}
+
+	public override bool IsOnCeilingMod()
+	{
+		return IsOnFloor();
+	}
+
 }

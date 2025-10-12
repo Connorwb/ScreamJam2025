@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cidd3nfcnaq3k"]
+[gd_scene load_steps=36 format=3 uid="uid://cidd3nfcnaq3k"]
 
 [ext_resource type="Texture2D" uid="uid://b62c2jakfxaja" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://wobdypdmokqm" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
 [ext_resource type="Script" path="res://Scripts/DepressButton.cs" id="12_n1rot"]
 [ext_resource type="Texture2D" uid="uid://cfbkwxpjg5y0k" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
+[ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="15_o1n0w"]
 [ext_resource type="Script" path="res://Scripts/MovingPlatform.cs" id="15_sfm2b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sh818"]
@@ -30,8 +31,131 @@ size = Vector2(67, 14.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljmu2"]
 size = Vector2(49, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hulcr"]
+size = Vector2(207, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wiube"]
 size = Vector2(134, 20.5)
+
+[sub_resource type="Animation" id="Animation_qmah7"]
+resource_name = "Rise"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-230, 160), Vector2(-230, -275)]
+}
+
+[sub_resource type="Animation" id="Animation_58ivf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-224, 153)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position.Y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xf7g5"]
+_data = {
+"RESET": SubResource("Animation_58ivf"),
+"Rise": SubResource("Animation_qmah7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1pbe"]
+size = Vector2(103, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bheh4"]
+size = Vector2(528, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq2ct"]
+size = Vector2(134, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l431m"]
+size = Vector2(24, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0iqn"]
+size = Vector2(73, 16)
+
+[sub_resource type="Animation" id="Animation_68s7v"]
+resource_name = "rightleft"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.96667, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 303), Vector2(290, 303), Vector2(600, 303)]
+}
+
+[sub_resource type="Animation" id="Animation_vecq3"]
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21, 303)]
+}
+
+[sub_resource type="Animation" id="Animation_per6p"]
+resource_name = "rightleft2"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-21, 303), Vector2(250, 303), Vector2(-21, 303)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlphr"]
+_data = {
+"RESET": SubResource("Animation_vecq3"),
+"rightleft": SubResource("Animation_68s7v"),
+"rightleft2": SubResource("Animation_per6p")
+}
 
 [node name="Node" type="Node"]
 
@@ -187,8 +311,8 @@ shape = SubResource("RectangleShape2D_ljmu2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingA"]
-position = Vector2(2611, 338)
-shape = SubResource("RectangleShape2D_wiube")
+position = Vector2(2611.5, 338)
+shape = SubResource("RectangleShape2D_hulcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="BuildingA"]
 position = Vector2(2611, 338.5)
@@ -208,12 +332,12 @@ texture = ExtResource("11_r7e0t")
 position = Vector2(247, -177)
 polygon = PackedVector2Array(2463, 357, 2466, 540, 2262, 539, 2263, 513)
 
-[node name="ButtonRisePlat" type="StaticBody2D" parent="."]
+[node name="ButtonRisePlat" type="StaticBody2D" parent="." node_paths=PackedStringArray("actuate_anim")]
 position = Vector2(2420, 569)
 collision_layer = 32
 collision_mask = 32
-script = ExtResource("12_n1rot")
-toggle_layer = 1
+script = ExtResource("15_o1n0w")
+actuate_anim = NodePath("../RisePlat/Rise")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonRisePlat"]
@@ -249,6 +373,118 @@ shape = SubResource("RectangleShape2D_wiube")
 position = Vector2(2648, 352.5)
 scale = Vector2(1.04688, 0.164063)
 texture = ExtResource("11_r7e0t")
+
+[node name="Rise" type="AnimationPlayer" parent="RisePlat"]
+libraries = {
+"": SubResource("AnimationLibrary_xf7g5")
+}
+
+[node name="BuildingC" type="StaticBody2D" parent="."]
+position = Vector2(274, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingC"]
+position = Vector2(2558.5, 338.5)
+shape = SubResource("RectangleShape2D_r1pbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingC"]
+position = Vector2(2558.5, 338.5)
+scale = Vector2(0.804688, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingD" type="StaticBody2D" parent="."]
+position = Vector2(178, -174)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingD"]
+position = Vector2(2771, 338)
+shape = SubResource("RectangleShape2D_bheh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingD"]
+position = Vector2(2771, 338.5)
+scale = Vector2(4.125, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingE" type="StaticBody2D" parent="."]
+position = Vector2(178, -174)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingE"]
+position = Vector2(2771, 338)
+shape = SubResource("RectangleShape2D_bheh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingE"]
+position = Vector2(2771, 338.5)
+scale = Vector2(4.125, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingF" type="StaticBody2D" parent="."]
+position = Vector2(419, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingF"]
+position = Vector2(2623, 338.5)
+shape = SubResource("RectangleShape2D_lq2ct")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingF"]
+position = Vector2(2623, 338.5)
+scale = Vector2(1.04688, 0.382812)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingG" type="StaticBody2D" parent="."]
+position = Vector2(633, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingG"]
+position = Vector2(2568, 414.5)
+shape = SubResource("RectangleShape2D_l431m")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingG"]
+position = Vector2(2568, 414)
+scale = Vector2(0.187502, 1.5625)
+texture = ExtResource("11_r7e0t")
+
+[node name="BuildingH" type="StaticBody2D" parent="."]
+position = Vector2(-21, 303)
+collision_layer = 16
+collision_mask = 16
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingH"]
+position = Vector2(2573.5, 355)
+shape = SubResource("RectangleShape2D_o0iqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingH"]
+position = Vector2(2573.5, 355)
+scale = Vector2(0.570313, 0.125)
+texture = ExtResource("11_r7e0t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingH"]
+libraries = {
+"": SubResource("AnimationLibrary_mlphr")
+}
+autoplay = "rightleft2"
+
+[node name="BuildingI" type="StaticBody2D" parent="."]
+position = Vector2(-21, 303)
+collision_layer = 16
+collision_mask = 16
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingI"]
+position = Vector2(2573.5, 355)
+shape = SubResource("RectangleShape2D_o0iqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingI"]
+position = Vector2(2573.5, 355)
+scale = Vector2(0.570313, 0.125)
+texture = ExtResource("11_r7e0t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingI"]
+libraries = {
+"": SubResource("AnimationLibrary_mlphr")
+}
+autoplay = "rightleft"
 
 [connection signal="body_entered" from="Button1/Actuation" to="Button1" method="OnBodyEntered"]
 [connection signal="body_exited" from="Button1/Actuation" to="Button1" method="OnBodyExited"]

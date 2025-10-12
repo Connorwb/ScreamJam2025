@@ -39,19 +39,33 @@ public abstract partial class Player : CharacterBody2D
 			animatedSprite2D.Animation = "Idle";
 		}
 
-		if (IsOnFloorMod() && Input.IsActionPressed("jump"))
+		if (IsOnFloorMod())
 		{
-			carried_velocity.Y = jumpHeight;
+			if (Input.IsActionPressed("jump"))
+			{
+				carried_velocity.Y = jumpHeight;
+			}
+			else
+			{
+				carried_velocity.Y = 0;
+			}
+
 		}
 		else if (!IsOnFloorMod())
 		{
 			animatedSprite2D.Animation = "Jumping";
+		}
+		
+		if (IsOnCeilingMod())
+		{
+			carried_velocity.Y = 0;
 		}
 
 		animatedSprite2D.Play();
 	}
 
 	public abstract bool IsOnFloorMod();
+	public abstract bool IsOnCeilingMod();
 
 	protected void move_left()
 	{

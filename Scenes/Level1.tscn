@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cidd3nfcnaq3k"]
+[gd_scene load_steps=43 format=3 uid="uid://cidd3nfcnaq3k"]
 
 [ext_resource type="Texture2D" uid="uid://buma2e4diq1bm" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
@@ -15,6 +15,12 @@
 [ext_resource type="Script" uid="uid://brut386tm4c00" path="res://Scripts/DepressButton.gd" id="12_qs1hw"]
 [ext_resource type="Texture2D" uid="uid://30vu3i23rudy" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
 [ext_resource type="Script" uid="uid://dw7ybqaffclw0" path="res://Scripts/PowerButton.gd" id="15_bihmv"]
+[ext_resource type="Texture2D" uid="uid://cln1pik7ehc1k" path="res://Assets/environment/interactable assets/stump_base.PNG" id="16_yji5v"]
+[ext_resource type="Texture2D" uid="uid://oin6euidhsw8" path="res://Assets/environment/interactable assets/stump_cap.PNG" id="17_ulvkb"]
+[ext_resource type="Texture2D" uid="uid://dvkk8eudewpr8" path="res://Assets/environment/interactable assets/stump_anim2.PNG" id="18_fh0sh"]
+[ext_resource type="Texture2D" uid="uid://bkgbe21kdiupx" path="res://Assets/environment/interactable assets/stump_anim1.PNG" id="19_03od6"]
+[ext_resource type="Texture2D" uid="uid://lwwqcjqxa5d6" path="res://Assets/environment/interactable assets/stump_anim3.PNG" id="20_384de"]
+[ext_resource type="Script" uid="uid://cycklqwr86j26" path="res://Scripts/TextDisplay.gd" id="21_ulvkb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sh818"]
 
@@ -41,26 +47,62 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:position.Y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-224, 153)]
+"update": 1,
+"values": [null]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position.Y")
+tracks/1/path = NodePath("CollisionShape2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2647, 342)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/PointLight2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2648, 218.75002)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TextureRect4:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [null]
+"values": [ExtResource("18_fh0sh")]
 }
 
 [sub_resource type="Animation" id="Animation_qmah7"]
@@ -69,14 +111,86 @@ length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("CollisionShape2D:scale")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 6),
+"times": PackedFloat32Array(0, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-230, 160), Vector2(-230, -275)]
+"values": [Vector2(1, 1), Vector2(1, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cap:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2647, 344), Vector2(2647, 76)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/PointLight2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2648, 488), Vector2(2648, 218.75002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/TextureRect:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TextureRect2:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/TextureRect3:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/TextureRect4:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf7g5"]
@@ -84,6 +198,9 @@ _data = {
 &"RESET": SubResource("Animation_58ivf"),
 &"Rise": SubResource("Animation_qmah7")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bhaf5"]
+light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1pbe"]
 size = Vector2(103, 49)
@@ -155,6 +272,9 @@ _data = {
 &"rightleft": SubResource("Animation_68s7v"),
 &"rightleft2": SubResource("Animation_per6p")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yji5v"]
+size = Vector2(183, 276)
 
 [node name="Node" type="Node"]
 
@@ -239,6 +359,50 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_aiwcg")
 flip_h = true
 flip_v = true
+
+[node name="InterfaceManager" type="CanvasLayer" parent="MainCamera"]
+
+[node name="DialougeManager" type="Control" parent="MainCamera/InterfaceManager"]
+layout_mode = 3
+anchor_top = 0.77900004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.32006836
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="MainCamera/InterfaceManager/DialougeManager"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainCamera/InterfaceManager/DialougeManager"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Lorem Ipsum"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainCamera/InterfaceManager/DialougeManager"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Bush1" type="Sprite2D" parent="."]
 position = Vector2(568, 481)
@@ -360,22 +524,78 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_ljmu2")
 
 [node name="RisePlat" type="StaticBody2D" parent="."]
-position = Vector2(-224, 153)
-metadata/_edit_group_ = true
+position = Vector2(-230, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RisePlat"]
 position = Vector2(2648, 352.25)
 shape = SubResource("RectangleShape2D_wiube")
 
-[node name="Sprite2D" type="Sprite2D" parent="RisePlat"]
-position = Vector2(2648, 352.5)
-scale = Vector2(1.04688, 0.164063)
-texture = ExtResource("11_r7e0t")
+[node name="Base" type="Sprite2D" parent="RisePlat"]
+position = Vector2(2648, 353)
+scale = Vector2(2, 2)
+texture = ExtResource("16_yji5v")
+
+[node name="Cap" type="Sprite2D" parent="RisePlat"]
+position = Vector2(2647, 342)
+scale = Vector2(2, 2)
+texture = ExtResource("17_ulvkb")
 
 [node name="Rise" type="AnimationPlayer" parent="RisePlat"]
 libraries = {
 &"": SubResource("AnimationLibrary_xf7g5")
 }
+
+[node name="Control" type="Control" parent="RisePlat"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="RisePlat/Control"]
+material = SubResource("CanvasItemMaterial_bhaf5")
+layout_mode = 0
+offset_left = 2596.0
+offset_top = 265.0
+offset_right = 2646.0
+offset_bottom = 305.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_fh0sh")
+
+[node name="TextureRect2" type="TextureRect" parent="RisePlat/Control"]
+material = SubResource("CanvasItemMaterial_bhaf5")
+layout_mode = 0
+offset_left = 2596.0
+offset_top = 185.0
+offset_right = 2646.0
+offset_bottom = 225.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_fh0sh")
+
+[node name="TextureRect3" type="TextureRect" parent="RisePlat/Control"]
+material = SubResource("CanvasItemMaterial_bhaf5")
+layout_mode = 0
+offset_left = 2596.0
+offset_top = 105.0
+offset_right = 2646.0
+offset_bottom = 145.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_fh0sh")
+
+[node name="TextureRect4" type="TextureRect" parent="RisePlat/Control"]
+material = SubResource("CanvasItemMaterial_bhaf5")
+layout_mode = 0
+offset_left = 2596.0
+offset_top = 25.0
+offset_right = 2646.0
+offset_bottom = 65.0
+scale = Vector2(2, 2)
+texture = ExtResource("18_fh0sh")
+
+[node name="PointLight2D" type="PointLight2D" parent="RisePlat/Control"]
+position = Vector2(2648, 218.75002)
+scale = Vector2(1, 2.2304688)
+texture = ExtResource("11_r7e0t")
 
 [node name="BuildingC" type="StaticBody2D" parent="."]
 position = Vector2(274, 2)
@@ -484,6 +704,17 @@ libraries = {
 }
 autoplay = "rightleft"
 
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("triggered_control")]
+script = ExtResource("21_ulvkb")
+triggered_control = NodePath("../MainCamera/InterfaceManager/DialougeManager")
+seek_collision_layer = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1174, 377)
+shape = SubResource("RectangleShape2D_yji5v")
+
 [connection signal="body_entered" from="Button1/Actuation" to="Button1" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="ButtonRisePlat/Actuation" to="ButtonRisePlat" method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

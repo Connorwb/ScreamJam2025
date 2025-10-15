@@ -1,19 +1,20 @@
-[gd_scene load_steps=43 format=3 uid="uid://cidd3nfcnaq3k"]
+[gd_scene load_steps=46 format=3 uid="uid://cidd3nfcnaq3k"]
 
-[ext_resource type="Texture2D" uid="uid://dngorn551fa85" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
+[ext_resource type="Texture2D" uid="uid://buma2e4diq1bm" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
 [ext_resource type="Script" uid="uid://c0ebfuwmlis6c" path="res://Scripts/MainCamera.gd" id="3_hvy0x"]
 [ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://Scenes/player_dead.tscn" id="3_laytm"]
-[ext_resource type="Texture2D" uid="uid://cpcopv8lmrql8" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
-[ext_resource type="Texture2D" uid="uid://emrvn4pr7f7b" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
-[ext_resource type="Texture2D" uid="uid://xle66iphainb" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
-[ext_resource type="Texture2D" uid="uid://cjvidm3xsealb" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
-[ext_resource type="Texture2D" uid="uid://coso4lsg3rm5a" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
-[ext_resource type="Texture2D" uid="uid://cswwmmlcccmx6" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
+[ext_resource type="Script" uid="uid://c3x0ybw1ldni0" path="res://Scripts/ResizeManager.gd" id="4_fh0sh"]
+[ext_resource type="Texture2D" uid="uid://dmwg45qb48jay" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
+[ext_resource type="Texture2D" uid="uid://ekmj2agyhi5h" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
+[ext_resource type="Texture2D" uid="uid://t46gp13qvf8h" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
+[ext_resource type="Texture2D" uid="uid://bw5bs56jwdang" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
+[ext_resource type="Texture2D" uid="uid://cme7tk72b5npw" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
+[ext_resource type="Texture2D" uid="uid://6hvkigaye4cb" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
 [ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="11_r7e0t"]
-[ext_resource type="Texture2D" uid="uid://bkuynx0eo40pn" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
+[ext_resource type="Texture2D" uid="uid://cqn2w6f14pq77" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
 [ext_resource type="Script" uid="uid://brut386tm4c00" path="res://Scripts/DepressButton.gd" id="12_qs1hw"]
-[ext_resource type="Texture2D" uid="uid://ba3rc7y2nielv" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
+[ext_resource type="Texture2D" uid="uid://30vu3i23rudy" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
 [ext_resource type="Script" uid="uid://dw7ybqaffclw0" path="res://Scripts/PowerButton.gd" id="15_bihmv"]
 [ext_resource type="Texture2D" uid="uid://cln1pik7ehc1k" path="res://Assets/environment/interactable assets/stump_base.PNG" id="16_yji5v"]
 [ext_resource type="Texture2D" uid="uid://oin6euidhsw8" path="res://Assets/environment/interactable assets/stump_cap.PNG" id="17_ulvkb"]
@@ -90,7 +91,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2648, 218.75002)]
+"values": [Vector2(2648, 488)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -151,10 +152,10 @@ tracks/3/path = NodePath("Control/TextureRect:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -163,10 +164,10 @@ tracks/4/path = NodePath("Control/TextureRect2:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -175,10 +176,10 @@ tracks/5/path = NodePath("Control/TextureRect3:texture")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh")]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -187,10 +188,10 @@ tracks/6/path = NodePath("Control/TextureRect4:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de")]
+"values": [ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh"), ExtResource("19_03od6"), ExtResource("20_384de"), ExtResource("18_fh0sh")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf7g5"]
@@ -201,6 +202,13 @@ _data = {
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bhaf5"]
 light_mode = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fh0sh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_03od6"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_fh0sh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1pbe"]
 size = Vector2(103, 49)
@@ -308,53 +316,46 @@ offset = Vector2(0, 540)
 script = ExtResource("3_hvy0x")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
-layer = -2
-
-[node name="Floor" type="Sprite2D" parent="MainCamera/CanvasLayer"]
-position = Vector2(960, 540)
-scale = Vector2(1.514, 0.5)
-texture = ExtResource("1_iov0d")
-
-[node name="AliveSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
-position = Vector2(960, 257)
-scale = Vector2(1.5, 1.25366)
-texture = ExtResource("5_ij7ed")
-
-[node name="DeadSky" type="Sprite2D" parent="MainCamera/CanvasLayer"]
-position = Vector2(960, 823)
-scale = Vector2(1.5, 1.25366)
-texture = ExtResource("6_scdgf")
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="MainCamera"]
 layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="MainCamera/ParallaxBackground"]
 position = Vector2(200, 0)
-motion_scale = Vector2(0.02, 0.02)
+motion_scale = Vector2(0.05, 0.05)
 motion_mirroring = Vector2(1960, 0)
+script = ExtResource("4_fh0sh")
 
-[node name="Sprite2D" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer"]
-position = Vector2(990, 367)
+[node name="TextureRect" type="TextureRect" parent="MainCamera/ParallaxBackground/ParallaxLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = 220.0
+offset_right = 1983.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("10_urap6")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="MainCamera/ParallaxBackground"]
-position = Vector2(0, -2)
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.5, 0)
 motion_mirroring = Vector2(1980, 0)
+script = ExtResource("4_fh0sh")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
 z_index = 1
-position = Vector2(1199, 449)
+position = Vector2(1197, 447)
 texture = ExtResource("7_ecgjc")
 
 [node name="AliveTree2" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1334, 301)
+position = Vector2(1334, 298)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_8ob7d")
 
 [node name="DeadTree2" type="Sprite2D" parent="MainCamera/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1332, 805)
+position = Vector2(1332, 803)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_aiwcg")
 flip_h = true
@@ -403,6 +404,36 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
+layer = -2
+
+[node name="LifeSky" type="TextureRect" parent="MainCamera/CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.476
+offset_bottom = -0.08001709
+texture = ExtResource("5_ij7ed")
+
+[node name="DeadSky" type="TextureRect" parent="MainCamera/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.52400005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.079956055
+texture = ExtResource("6_scdgf")
+
+[node name="Floor" type="TextureRect" parent="MainCamera/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.476
+anchor_right = 1.0
+anchor_bottom = 0.52400005
+offset_top = -0.08001709
+offset_bottom = 53.079956
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.5)
+texture = ExtResource("1_iov0d")
 
 [node name="Bush1" type="Sprite2D" parent="."]
 position = Vector2(568, 481)
@@ -471,6 +502,7 @@ position = Vector2(1669.5, 571.5)
 shape = SubResource("RectangleShape2D_ljmu2")
 
 [node name="BuildingA" type="StaticBody2D" parent="."]
+position = Vector2(0, -49)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingA"]
@@ -483,7 +515,7 @@ scale = Vector2(1.625, 0.382812)
 texture = ExtResource("11_r7e0t")
 
 [node name="BuildingB" type="StaticBody2D" parent="."]
-position = Vector2(-1, -174)
+position = Vector2(-1, -240)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="BuildingB"]
@@ -493,7 +525,7 @@ texture = ExtResource("11_r7e0t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingB"]
 position = Vector2(247, -177)
-polygon = PackedVector2Array(2463, 357, 2466, 540, 2262, 539, 2263, 513)
+polygon = PackedVector2Array(2463, 170, 2466, 540, 2262, 539, 2263, 513, 2385.8562, 417.17215, 2394, 167)
 
 [node name="ButtonRisePlat" type="StaticBody2D" parent="." node_paths=PackedStringArray("actuate_anim")]
 position = Vector2(2420, 569)
@@ -594,12 +626,15 @@ scale = Vector2(2, 2)
 texture = ExtResource("18_fh0sh")
 
 [node name="PointLight2D" type="PointLight2D" parent="RisePlat/Control"]
-position = Vector2(2648, 218.75002)
+light_mask = 1024
+visibility_layer = 1024
+position = Vector2(2648, 488)
 scale = Vector2(1, 2.2304688)
-texture = ExtResource("11_r7e0t")
+energy = 0.0
+texture = SubResource("NoiseTexture2D_03od6")
 
 [node name="BuildingC" type="StaticBody2D" parent="."]
-position = Vector2(274, 2)
+position = Vector2(274, -50)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingC"]
@@ -612,7 +647,7 @@ scale = Vector2(0.804688, 0.382812)
 texture = ExtResource("11_r7e0t")
 
 [node name="BuildingD" type="StaticBody2D" parent="."]
-position = Vector2(178, -174)
+position = Vector2(178, -241)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingD"]
@@ -624,21 +659,8 @@ position = Vector2(2771, 338.5)
 scale = Vector2(4.125, 0.382812)
 texture = ExtResource("11_r7e0t")
 
-[node name="BuildingE" type="StaticBody2D" parent="."]
-position = Vector2(178, -174)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingE"]
-position = Vector2(2771, 338)
-shape = SubResource("RectangleShape2D_bheh4")
-
-[node name="Sprite2D" type="Sprite2D" parent="BuildingE"]
-position = Vector2(2771, 338.5)
-scale = Vector2(4.125, 0.382812)
-texture = ExtResource("11_r7e0t")
-
 [node name="BuildingF" type="StaticBody2D" parent="."]
-position = Vector2(419, 0)
+position = Vector2(419, -50)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingF"]

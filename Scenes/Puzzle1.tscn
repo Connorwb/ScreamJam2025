@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://cieungemjsqbk"]
+
+[ext_resource type="Script" uid="uid://bldh28aqd6cx3" path="res://Scripts/Log.gd" id="1_nj0d2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4iok"]
+size = Vector2(78, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m3qx"]
+size = Vector2(113, 342)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_of8d6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8d6"]
+size = Vector2(1920, 51.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0d2"]
+size = Vector2(145, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q5fq"]
+size = Vector2(50, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ag2c"]
+size = Vector2(461, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq8pw"]
+size = Vector2(247, 129.5)
+
+[sub_resource type="Animation" id="Animation_3ag2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StaticBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4hylh"]
+resource_name = "Rise"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StaticBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjhuo"]
+_data = {
+&"RESET": SubResource("Animation_3ag2c"),
+&"Rise": SubResource("Animation_4hylh")
+}
+
+[node name="PUZZLE1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("actuate_anim")]
+position = Vector2(0, -100)
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_nj0d2")
+actuate_anim = NodePath("../../PUZZLE_STATIC/AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(1305, 790.5)
+shape = SubResource("RectangleShape2D_x4iok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1302, 503)
+shape = SubResource("RectangleShape2D_5m3qx")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1303, 503.5)
+scale = Vector2(113.99992, 343)
+texture = SubResource("CanvasTexture_of8d6")
+
+[node name="PUZZLE_STATIC" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PUZZLE_STATIC"]
+position = Vector2(960, 539.25)
+shape = SubResource("RectangleShape2D_of8d6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PUZZLE_STATIC"]
+position = Vector2(722.00006, 693)
+shape = SubResource("RectangleShape2D_nj0d2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PUZZLE_STATIC"]
+position = Vector2(819.00006, 861)
+shape = SubResource("RectangleShape2D_7q5fq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PUZZLE_STATIC"]
+position = Vector2(864.5, 448.5)
+shape = SubResource("RectangleShape2D_3ag2c")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PUZZLE_STATIC"]
+position = Vector2(1684, 175)
+shape = SubResource("RectangleShape2D_bq8pw")
+
+[node name="Sprite2D" type="Sprite2D" parent="PUZZLE_STATIC"]
+position = Vector2(864.49994, 449)
+scale = Vector2(460.99994, 130)
+texture = SubResource("CanvasTexture_of8d6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PUZZLE_STATIC"]
+position = Vector2(722.00006, 692.99994)
+scale = Vector2(146.00008, 22.000021)
+texture = SubResource("CanvasTexture_of8d6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PUZZLE_STATIC"]
+position = Vector2(819.00006, 860.5)
+scale = Vector2(49.999973, 357)
+texture = SubResource("CanvasTexture_of8d6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PUZZLE_STATIC"]
+position = Vector2(1684.5, 175)
+scale = Vector2(249.0001, 129.99998)
+texture = SubResource("CanvasTexture_of8d6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PUZZLE_STATIC"]
+libraries = {
+&"": SubResource("AnimationLibrary_tjhuo")
+}
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_exited"]

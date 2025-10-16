@@ -2,6 +2,7 @@ extends Area2D
 
 @export var triggered_control : Control
 @export var seek_collision_layer : int
+@export var dissapear : Sprite2D
 
 var panel : Panel
 var label : Label
@@ -31,6 +32,9 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if (!(body.name == "PlayerDead") and  !(body.name == "PlayerAlive")):
 		return
+
+	if dissapear and dissapear is Sprite2D:
+		dissapear.visible = false
 
 	active = false
 	triggered_control.visible = false

@@ -11,7 +11,7 @@ func _ready() -> void:
 		SelfBoundary = Col.shape as RectangleShape2D
 		
 	jumpHeight = -325.0
-	Speed = 400
+	Speed = 275
 	Gravity = 600
 	mirrored = false
 

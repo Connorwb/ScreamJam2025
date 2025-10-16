@@ -1108,11 +1108,12 @@ position = Vector2(1253, 477)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("34_nlo60")
 
-[node name="Banner" type="Area2D" parent="." node_paths=PackedStringArray("triggered_control")]
+[node name="Banner" type="Area2D" parent="." node_paths=PackedStringArray("triggered_control", "dissapear")]
 position = Vector2(4954, 78)
 script = ExtResource("21_ulvkb")
 triggered_control = NodePath("../MainCamera/InterfaceManager/DialougeManager2")
 seek_collision_layer = 1
+dissapear = NodePath("Sprite2D")
 metadata/_edit_group_ = true
 metadata/Entered = false
 

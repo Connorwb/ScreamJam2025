@@ -17,6 +17,9 @@ func _ready() -> void:
 func _on_detection_area_body_entered(node: Node2D) -> void:
 	
 	print("Body '%s' entered" % node.name)
+
+	if (!(node.name == "PlayerDead")):
+		return
 	
 	if is_instance_valid(depressed):
 		depressed.visible = true

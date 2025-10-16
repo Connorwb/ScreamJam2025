@@ -53,12 +53,12 @@ func _physics_process(delta: float) -> void:
 func move_left():
     ctrl_velocity.x = -Speed 
     animatedSprite2D.animation = "Walking"
-    animatedSprite2D.flip_h = not mirrored
+    animatedSprite2D.flip_h = mirrored
 
 func move_right():
     ctrl_velocity.x = Speed
     animatedSprite2D.animation = "Walking"
-    animatedSprite2D.flip_h = mirrored
+    animatedSprite2D.flip_h = not mirrored
 
 func IsOnFloorMod() -> bool:
     return is_on_floor()

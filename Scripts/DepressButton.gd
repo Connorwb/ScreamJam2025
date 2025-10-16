@@ -24,6 +24,9 @@ func _ready() -> void:
 func _on_detection_area_body_entered(node: Node2D) -> void:
 	print("Body '%s' entered" % node.name)
 	
+	if (!(node.name == "PlayerDead")):
+		return
+	
 	if is_instance_valid(actuate_obj_unop):
 		actuate_obj_unop.visible = false
 	if is_instance_valid(actuate_obj_open):
@@ -33,7 +36,6 @@ func _on_detection_area_body_entered(node: Node2D) -> void:
 		var bit_to_remove: int = 1 << (toggle_layer - 1)
 		actuate_obj_body.collision_layer &= ~bit_to_remove
 	
-	# 4. Toggle visuals for the button (e.g., depress the button)
 	if is_instance_valid(depressed):
 		depressed.visible = true
 	if is_instance_valid(inactive):

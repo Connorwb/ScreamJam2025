@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnpgj8n6fqfll"]
 
 [ext_resource type="Script" uid="uid://iwy6xslo5jfa" path="res://Scripts/StartButton.gd" id="1_jto3d"]
-[ext_resource type="Texture2D" uid="uid://bpoyu1yuphjlv" path="res://icon.svg" id="2_xnucc"]
+[ext_resource type="Texture2D" uid="uid://fd61v0b8hfms" path="res://Assets/title.png" id="2_p3fck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3ggb"]
-size = Vector2(128, 128)
+size = Vector2(355, 146)
 
 [node name="TitleScreen" type="Node"]
 
@@ -12,12 +12,12 @@ size = Vector2(128, 128)
 script = ExtResource("1_jto3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartButton"]
-position = Vector2(576, 280)
+position = Vector2(1426.5, 896)
 shape = SubResource("RectangleShape2D_s3ggb")
 
 [node name="Sprite2D" type="Sprite2D" parent="StartButton"]
-position = Vector2(576, 280)
-texture = ExtResource("2_xnucc")
+position = Vector2(960, 540)
+texture = ExtResource("2_p3fck")
 
 [connection signal="mouse_entered" from="StartButton" to="StartButton" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="StartButton" to="StartButton" method="OnMouseExited"]

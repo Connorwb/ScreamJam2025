@@ -12,11 +12,12 @@ size = Vector2(355, 146)
 script = ExtResource("1_jto3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartButton"]
-position = Vector2(1426.5, 896)
+position = Vector2(954, 591)
 shape = SubResource("RectangleShape2D_s3ggb")
 
 [node name="Sprite2D" type="Sprite2D" parent="StartButton"]
-position = Vector2(960, 540)
+position = Vector2(640, 360)
+scale = Vector2(0.6666666, 0.6666666)
 texture = ExtResource("2_p3fck")
 
 [connection signal="mouse_entered" from="StartButton" to="StartButton" method="OnMouseEntered"]

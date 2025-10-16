@@ -7,7 +7,7 @@ var carried_velocity: Vector2
 var Col: CollisionShape2D
 var SelfBoundary: RectangleShape2D
 var animatedSprite2D: AnimatedSprite2D
-@export var jumpHeight: float = -900.0 
+var jumpHeight: float = -100.0 
 @export var mirrored: bool = false 
 var ctrl_velocity: Vector2 = Vector2.ZERO 
 

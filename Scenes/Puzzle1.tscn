@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bldh28aqd6cx3" path="res://Scripts/Log.gd" id="1_nj0d2"]
 [ext_resource type="Texture2D" uid="uid://bkgbe21kdiupx" path="res://Assets/environment/interactable assets/stump_anim1.PNG" id="2_bq8pw"]
 [ext_resource type="TileSet" uid="uid://bsujot4dmocu0" path="res://Materials/new_tile_set.tres" id="2_x4iok"]
-[ext_resource type="Texture2D" uid="uid://bqxens4vvrwyi" path="res://Assets/environment/interactable assets/life_button.PNG" id="3_3ag2c"]
-[ext_resource type="Texture2D" uid="uid://bw5bs56jwdang" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="3_x4iok"]
-[ext_resource type="Texture2D" uid="uid://c7msdbf65pyh3" path="res://Assets/environment/interactable assets/life_button_pressed.PNG" id="5_4hylh"]
+[ext_resource type="Texture2D" uid="uid://w1eyeisyekn0" path="res://Assets/environment/interactable assets/life_button.PNG" id="3_3ag2c"]
+[ext_resource type="Texture2D" uid="uid://cjvidm3xsealb" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="3_x4iok"]
+[ext_resource type="Texture2D" uid="uid://bprfbst4q5lcb" path="res://Assets/environment/interactable assets/life_button_pressed.PNG" id="5_4hylh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4iok"]
 size = Vector2(78, 41)

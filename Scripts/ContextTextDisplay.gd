@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 	if seek_activated.get_meta("Entered") :
 		print("GOT THING")
 		triggered_control = triggered_control_after
+		text = triggered_control.get_child(2)
 
 func _on_body_entered(body: Node2D) -> void:
 	if (!(body.name == "PlayerDead") and  !(body.name == "PlayerAlive")):

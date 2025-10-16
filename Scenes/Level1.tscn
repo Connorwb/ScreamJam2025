@@ -1,26 +1,26 @@
 [gd_scene load_steps=66 format=4 uid="uid://cidd3nfcnaq3k"]
 
-[ext_resource type="Texture2D" uid="uid://buma2e4diq1bm" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
+[ext_resource type="Texture2D" uid="uid://dngorn551fa85" path="res://Assets/environment/background assets/floor_placeholder.PNG" id="1_iov0d"]
 [ext_resource type="PackedScene" uid="uid://bwts5xx0a0evy" path="res://Scenes/player_alive.tscn" id="2_jjch3"]
 [ext_resource type="Script" uid="uid://c0ebfuwmlis6c" path="res://Scripts/MainCamera.gd" id="3_hvy0x"]
 [ext_resource type="PackedScene" uid="uid://yrqpuovcvnia" path="res://Scenes/player_dead.tscn" id="3_laytm"]
 [ext_resource type="Script" uid="uid://c3x0ybw1ldni0" path="res://Scripts/ResizeManager.gd" id="4_fh0sh"]
-[ext_resource type="Texture2D" uid="uid://dmwg45qb48jay" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
-[ext_resource type="Texture2D" uid="uid://ekmj2agyhi5h" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
-[ext_resource type="Texture2D" uid="uid://t46gp13qvf8h" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
-[ext_resource type="Texture2D" uid="uid://bw5bs56jwdang" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
-[ext_resource type="Texture2D" uid="uid://cme7tk72b5npw" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
+[ext_resource type="Texture2D" uid="uid://cpcopv8lmrql8" path="res://Assets/environment/background assets/life_sky1.PNG" id="5_ij7ed"]
+[ext_resource type="Texture2D" uid="uid://emrvn4pr7f7b" path="res://Assets/environment/background assets/death_sky1.PNG" id="6_scdgf"]
+[ext_resource type="Texture2D" uid="uid://xle66iphainb" path="res://Assets/environment/background assets/life_bg_bush2.PNG" id="7_ecgjc"]
+[ext_resource type="Texture2D" uid="uid://cjvidm3xsealb" path="res://Assets/environment/background assets/life_bg_tree1.PNG" id="8_8ob7d"]
+[ext_resource type="Texture2D" uid="uid://coso4lsg3rm5a" path="res://Assets/environment/background assets/death_bg_tree1.PNG" id="9_aiwcg"]
 [ext_resource type="Texture2D" uid="uid://b3ac4i48c6mfu" path="res://Assets/environment/background assets/life_bg_tree2.PNG" id="9_iswit"]
 [ext_resource type="Texture2D" uid="uid://dt2he880lboee" path="res://Assets/environment/background assets/death_bg_tree2.PNG" id="10_4rcpl"]
 [ext_resource type="Texture2D" uid="uid://btdmi8k2ck5mx" path="res://Assets/environment/background assets/life_bg_tree4.PNG" id="10_ud1sj"]
-[ext_resource type="Texture2D" uid="uid://6hvkigaye4cb" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
+[ext_resource type="Texture2D" uid="uid://cswwmmlcccmx6" path="res://Assets/environment/background assets/life_bg_mountains1.PNG" id="10_urap6"]
 [ext_resource type="Texture2D" uid="uid://dty42eoyf4q33" path="res://Assets/environment/background assets/life_bg_tree3.PNG" id="11_qvja8"]
-[ext_resource type="Texture2D" uid="uid://bsx4gba8avauo" path="res://Assets/environment/background assets/life_bg_bush1.PNG" id="12_4rcpl"]
-[ext_resource type="Texture2D" uid="uid://cqn2w6f14pq77" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
+[ext_resource type="Texture2D" uid="uid://c0tlwvhlxy81s" path="res://Assets/environment/background assets/life_bg_bush1.PNG" id="12_4rcpl"]
+[ext_resource type="Texture2D" uid="uid://bkuynx0eo40pn" path="res://Assets/environment/interactable assets/death_button_pressed.PNG" id="12_73iys"]
 [ext_resource type="TileSet" uid="uid://bsujot4dmocu0" path="res://Materials/new_tile_set.tres" id="12_384de"]
 [ext_resource type="Script" uid="uid://brut386tm4c00" path="res://Scripts/DepressButton.gd" id="12_qs1hw"]
 [ext_resource type="Texture2D" uid="uid://cl5f17st54qqg" path="res://Assets/environment/background assets/death_bg_tree4.PNG" id="14_iu5qg"]
-[ext_resource type="Texture2D" uid="uid://30vu3i23rudy" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
+[ext_resource type="Texture2D" uid="uid://ba3rc7y2nielv" path="res://Assets/environment/interactable assets/death_button.PNG" id="14_k6yip"]
 [ext_resource type="Script" uid="uid://dw7ybqaffclw0" path="res://Scripts/PowerButton.gd" id="15_bihmv"]
 [ext_resource type="Texture2D" uid="uid://b8stisoyp2blc" path="res://Assets/environment/background assets/death_bg_tree3.PNG" id="15_nlo60"]
 [ext_resource type="Texture2D" uid="uid://bu4y0aywhf0rf" path="res://Assets/environment/interactable assets/life_textmirror.PNG" id="16_iu5qg"]
@@ -578,7 +578,7 @@ offset_right = -527.0
 offset_bottom = -9.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Lorem Ipsum"
+text = "Lost Child"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainCamera/InterfaceManager/DialougeManager"]
 layout_mode = 1
@@ -592,7 +592,7 @@ offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+text = "Wise druid, thank the gods you're here! My twin sibling and I were playing in the woods, but they went deeper in and I can't find them... Please help me!"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -637,7 +637,7 @@ offset_right = -527.0
 offset_bottom = -9.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Thing Got"
+text = "Worn Toy"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainCamera/InterfaceManager/DialougeManager2"]
 layout_mode = 1
@@ -651,6 +651,7 @@ offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
+text = "Nestled in the ribbons is a battered wooden toy. This seems to be the trinket the spirit child wanted you to retrieve."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -696,7 +697,7 @@ offset_right = -527.0
 offset_bottom = -9.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Lorem Ipsum"
+text = "Spirit Child"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainCamera/InterfaceManager/DeadKidBefore"]
 layout_mode = 1
@@ -710,7 +711,7 @@ offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+text = "*sniffle* I was climbing a pretty tree with blue ribbons on it, and my hand slipped... When I woke up, I couldn't find my favorite toy anywhere, and it was so dark. Help me find it... *sobs* ... I can't go anywhere without it..."
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -756,7 +757,7 @@ offset_right = -527.0
 offset_bottom = -9.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Thanks!"
+text = "Spirit Child"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainCamera/InterfaceManager/DeadKidAfter"]
 layout_mode = 1
@@ -770,7 +771,7 @@ offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
-text = "You Win!"
+text = "MY FAVORITE TOY!! Thank you so much!! I feel so much better with this in my arms. Now I can go find my twin! Thanks again, kind druid! .... now when did I last see them again?"
 visible_characters = 0
 visible_ratio = 0.0
 
